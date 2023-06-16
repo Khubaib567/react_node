@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
+const dotenv = require("dotenv") ;
 
 const app = express();
+dotenv.config();
+
 const port = process.env.PORT || 5000;
 
 // Serve static files from the 'build' directory
