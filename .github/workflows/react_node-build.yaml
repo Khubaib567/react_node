@@ -27,26 +27,13 @@ jobs:
         with:
           submodules: 'recursive'
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: v16.x
-
-      - name: Build Node assets
-        env:
-          CI: true
-          SITE_URL: ${{ inputs.site-url }}
-        run: |
-          npm ci
-          npm run build
-
 # Please do not touch the following action
       - name: Store deployment content
         uses: ionos-deploy-now/artifact-action@v1
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-us.ionos.space
-          project-id: e04b36ee-bdd5-4a52-8086-250630af9abb
+          project-id: c3120a9a-28f9-4948-88e9-65d7d9d5271b
           branch-id: ${{ inputs.branch-id }}
           version: ${{ github.sha }}
           folder: ${{ env.DEPLOYMENT_FOLDER }}
